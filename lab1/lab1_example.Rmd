@@ -34,6 +34,18 @@ When we load data using tidyverse functions, we get a *tibble* which is quite si
 rossmann
 ```
 
+A RANDOM CODE TEST
+```{r}
+rossmann %>% filter(open == 1) %>%
+  group_by(storetype, promo) %>%
+  summarize(sales = mean(sales) / 1000, customers = mean(customers) / 100)
+```
+
+```{r}
+rossmann %>% filter(open == 1) %>%
+  group_by(storetype, promo2) %>% 
+  summarize(sales = mean(sales) / 1000, customers = mean(customers) / 100)
+```
 
 ## 1.
 There are several ways to tabulate the values of a variable in R. The function `count` from `dplyr` (part of the tidyverse) is particularly simple. Here it is illustrated with the use of a *pipe*. A pipe allows us to send the results of the previous expression to the next function. A pipe is written as `%>%`, and can be entered using the keyboard shortcut *Ctrl+Shift+M* in RStudio. The functions of the Tidyverse are designed to work well with pipes, such that the first argument is replaced by the previous result when included in the pipe.
